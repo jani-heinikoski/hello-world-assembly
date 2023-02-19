@@ -16,7 +16,7 @@ syscall_write_opcode:
 # Text section where primarily the unaltered instructions are.
 .text
 _start:
-    # Move value at location syscall_write_opcode into reg. eax
+    # Move value at location syscall_write_opcode into reg. eax (note: uses rip-relative addressing for PIE support)
     movl    syscall_write_opcode(%rip), %eax
     # Move immediate value 1 into reg. edi
     movl    $1, %edi
